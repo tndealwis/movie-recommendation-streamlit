@@ -1,48 +1,50 @@
 # Movie Recommendation System
 
-This project is a complete movie recommendation system featuring a web interface built with Streamlit and a backend API powered by FastAPI. The recommendation engine uses a collaborative filtering approach based on cosine similarity to suggest movies based on user rating patterns.
+This project implements a full-stack movie recommendation system. It features a responsive web interface built with Streamlit and a backend REST API powered by FastAPI. The core recommendation logic utilizes collaborative filtering based on cosine similarity to analyze user rating patterns and suggest relevant movies.
 
-## Features
+## Key Functionality
 
-- **Collaborative Filtering:** Recommends movies by finding similarities in how users have rated them.
-- **Interactive UI:** A Streamlit-based web application for easy user interaction.
-- **REST API:** A FastAPI backend that serves recommendations and handles data operations.
-- **Performance Tracking:** Tracks which recommendations are shown and which are clicked to calculate a click-through rate (CTR).
-- **Dynamic Data:** Ability to add new movies and ratings directly through the UI.
-- **Dual Database Support:** Configured to work with both SQLite (for easy setup) and PostgreSQL (for a more production-like environment).
+*   **Collaborative Filtering:** Generates movie suggestions by analyzing similarities in user ratings.
+*   **Interactive Interface:** A user-friendly web application developed with Streamlit for browsing and interaction.
+*   **RESTful Backend:** A dedicated FastAPI service that handles recommendation logic and data management.
+*   **Engagement Metrics:** Tracks user interactions to calculate the click-through rate (CTR) for recommended titles.
+*   **Data Management:** Allows users to input new movies and ratings directly through the application interface.
+*   **Database Flexibility:** Supports SQLite for development ease and PostgreSQL for production environments.
 
-## Architecture
+## System Architecture
 
-The application is divided into three main components:
+The application comprises three primary components:
 
-1.  **Frontend (Streamlit):** The `streamlit-app.py` file creates the user interface. Users can select a movie from a dropdown, get recommendations, and add new movies via a sidebar form. It communicates with the backend via HTTP requests.
+1.  **Frontend (Streamlit):** The `streamlit-app.py` script drives the user interface. It allows users to select movies, view recommendations, and submit new data. Communication with the backend occurs via HTTP requests.
 
-2.  **Backend (FastAPI):** The `myapp/main.py` file defines a RESTful API with endpoints for:
-    - Serving movie recommendations.
-    - Tracking user clicks on recommendations.
-    - Retrieving click-through statistics.
-    - Adding new movies to the database.
+2.  **Backend (FastAPI):** Located in `myapp/main.py`, this component defines the API endpoints responsible for:
+    *   Generating and serving movie recommendations.
+    *   Logging user clicks for analytics.
+    *   Retrieving engagement statistics.
+    *   Persisting new movie data.
 
-3.  **Recommendation Engine & Database:**
-    - The core recommendation logic is in `myapp/recommender.py`, which uses `pandas` and `scikit-learn` to build a similarity matrix.
-    - SQLAlchemy is used as the ORM to interact with a database (defaulting to SQLite) that stores movie data, ratings, and click statistics.
+3.  **Core Logic & Database:**
+    *   The recommendation engine resides in `myapp/recommender.py`, utilizing `pandas` and `scikit-learn` to construct similarity matrices.
+    *   SQLAlchemy serves as the ORM for database interactions, managing movie details, ratings, and click statistics (defaulting to SQLite).
 
-## Technology Stack
+## Technical Stack
 
-- **Backend:** FastAPI, Uvicorn
-- **Frontend:** Streamlit
-- **ML/Data Science:** Pandas, NumPy, Scikit-learn
-- **Database:** SQLAlchemy, SQLite, Psycopg2-binary (for PostgreSQL)
+*   **Backend:** FastAPI, Uvicorn
+*   **Frontend:** Streamlit
+*   **Data Science:** Pandas, NumPy, Scikit-learn
+*   **Persistence:** SQLAlchemy, SQLite, Psycopg2-binary
 
-## Dataset
+## Data Source
 
-This system is designed to work with the **MovieLens 100K Dataset**. You can download it from the official GroupLens website.
+The system is designed to process the **MovieLens 100K Dataset**. This dataset must be obtained from the official GroupLens website.
 
-## Setup and Installation
+## Installation Guide
 
-Follow these steps to get the project running on your local machine.
+Follow the steps below to set up the environment and run the application.
 
 ### 1. Clone the Repository
+
+Retrieve the source code from the repository:
 
 ```bash
 git clone https://github.com/your-username/movie-recommendation-system-streamlit.git
